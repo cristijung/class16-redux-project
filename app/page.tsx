@@ -1,14 +1,16 @@
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
+import Counter from "./components/counter/Counter";
+
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <section>
+      
+      <section className="container">
         <h1>Redux - RTKs</h1>
+        <h2>Como trabalhar com Redux</h2>
+        <Counter/>
       </section>
-      <Footer />
+     
     </>
   );
 }
