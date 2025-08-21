@@ -1,14 +1,12 @@
-
-
-"use client";
+'use client';
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import type { AppState, AppDispatch } from "../../store/store";
+import { useAppSelector, useAppDispatch } from "../../hooks/hooks"; //usando o hook personalizado
+//import type { AppState, AppDispatch } from "../../store/store"; // AppState não é mais necessário aqui, mas manterei para referência por enquanto
 import { increment, decrement, incrementByAmount, reset } from "./CounterSlice";
 
-export default function Counter() {
-  const count = useSelector((state: AppState) => state.counter.value);
-  const dispatch: AppDispatch = useDispatch();
+export default function Counter() {  
+  const count = useAppSelector((state) => state.counter.value);  
+  const dispatch = useAppDispatch();
 
   return (
     <>
