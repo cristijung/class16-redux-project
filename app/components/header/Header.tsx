@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import NavBar from "../navBar/NavBar";
 import { FaShoppingCart } from "react-icons/fa";
@@ -11,7 +13,7 @@ export default function Header() {
         </div>
         <NavBar />
         <div className="text-white mr-4 cursor-pointer p-2 rounded-full hover:bg-red-900">
-          <Link href="/loja" legacyBehavior>
+          <Link href="/loja" className="flex items-center justify-center">
             <FaShoppingCart size={24} />
           </Link>
         </div>
