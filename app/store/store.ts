@@ -5,14 +5,17 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from '../components/counter/CounterSlice';
+import todosSlice from './../components/toDo/todoSlice';
 
 // aqui criamos a store do Redux e a store é como um 'bd' central q aramazena todo o estado
 // da aplicação.// reducer é um objeto q define como o estado será dividido
 // o 'counter: counterReducer informa ao estado 'counter' --- para o estado 'counter', use o reducer que importamos.
 
+
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    todos: todosSlice,
   },
 });
 

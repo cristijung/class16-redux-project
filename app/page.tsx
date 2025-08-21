@@ -1,4 +1,5 @@
 import Counter from "./components/counter/Counter";
+import TodoList from "./components/toDo/TodoList";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <hr className="my-10 h-1 bg-gray-600 border-0 rounded" />
         <Counter />
         <hr className="my-10 h-1 bg-gray-600 border-0 rounded" />
+        <TodoList/>
       </section>
     </>
   );
