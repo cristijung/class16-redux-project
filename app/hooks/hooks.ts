@@ -1,5 +1,5 @@
 // hook personalizado para o uso do AppState, useSelector e AppDispatch para os componentes com estado
-// gerenciado´pelo redux
+// gerenciado pelo redux
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, AppState } from '../store/store';
 

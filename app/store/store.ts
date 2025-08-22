@@ -6,6 +6,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from '../components/counter/CounterSlice';
 import todosSlice from './../components/toDo/todoSlice';
+import { postsApi } from "./postsApi";
+import { catsApi } from "./catApi";
 
 // aqui criamos a store do Redux e a store é como um 'bd' central q aramazena todo o estado
 // da aplicação.// reducer é um objeto q define como o estado será dividido
@@ -16,7 +18,18 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     todos: todosSlice,
+    [postsApi.reducerPath]: postsApi.reducer,
+    [catsApi.reducerPath]: catsApi.reducer,
   },
+
+  //propriedade middleware na sua configuração da store. A função que você passa como valor recebe um argumento, getDefaultMiddleware, que é muito importante.
+  //'getDefaultMiddleware()': função do RTK, retorna uma lista de todos os middlewares padrão que o Redux já configura para nós. 
+  //esses middlewares incluem ferramentas úteis como o Redux Thunk (para ações assíncronas) e middlewares para verificar serialização 
+  //e ações imutáveis, que ajudam a evitar erros comuns.
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()      
+      .concat(postsApi.middleware) //postsApi.middleware: esse é o middleware gerado automaticamente pelo RTK Query (a parte de busca de dados do Redux Toolkit) quando se cria uma API.
+      .concat(catsApi.middleware),  
 });
 
 // definição de tipo para o TS e o TypeScript precisa conhecer a estrutura da store
