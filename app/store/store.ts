@@ -29,7 +29,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()      
       .concat(postsApi.middleware) //postsApi.middleware: esse é o middleware gerado automaticamente pelo RTK Query (a parte de busca de dados do Redux Toolkit) quando se cria uma API.
-      .concat(catsApi.middleware),  
+      .concat(catsApi.middleware),  //aqui para o caso de a aplicação ter mais 1 API
 });
 
 // definição de tipo para o TS e o TypeScript precisa conhecer a estrutura da store
